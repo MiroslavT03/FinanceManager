@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FinanceManager';
+  title = 'Finance Manager';
+
+  constructor(private router: Router, private authService: AuthService) {
+  }
+
+  category() {
+    this.router.navigate(['category']);
+  }
+
+  operation() {
+    this.router.navigate(['operation']);
+  }
+
+  transaction() {
+    this.router.navigate(['transaction']);
+  }
+
+
 }
+

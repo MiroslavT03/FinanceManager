@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header" >
+      <h3>Список операцій</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+        <tr class="text-center">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Created Date</th>
+          <th>Updated Date</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let operation of operation" class="text-center">
+          <td> {{ operation.id }} </td>
+          <td> {{ operation.name}} </td>
+          <td> {{ operation.description}} </td>
+          <td> {{ operation.createdDate}} </td>
+          <td> {{ operation.updatedDate}} </td>
+          <td><a [routerLink]="[operation.id]" class="btn btn-primary">Редагувати</a></td>
+<!--          <td><a (click) = "deleteCategory(category.id)" class="btn btn-danger">Видалити</a></td>-->
+        </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<br />
+<div class="container">
+  <button (click)="operation_add()" class="btn btn-primary">Додати операцію</button>
+</div>

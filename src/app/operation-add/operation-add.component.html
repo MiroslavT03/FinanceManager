@@ -1,0 +1,27 @@
+
+<div class="card  container-fluid mb-5" dark="true" style="color: #283024">
+  <!--  <div class="alert alert-danger" *ngIf="errorMsg"></div>-->
+  <!--  {{ errorMsg }}-->
+  <form class="text-center border border-light p-5" #categoryForm="ngForm" (ngSubmit)="onSubmit(operationModel)" novalidate>
+    <p class="h4 mb-4">Нова операція</p>
+    <div class="form-group">
+      <label>
+        <input  type="text" id="defaultSubscriptionFormPassword" required #name="ngModel"
+                [class.is-invalid]="name.invalid && name.touched" class="form-control mb-4" placeholder="Name" name="operationName"
+                [(ngModel)]=operationModel.name>
+      </label>
+      <small class="text-danger" [class.d-none]="name.valid || name.untouched"><br>Name is required</small>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="text" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="Description" name="description" [(ngModel)]=operationModel.description>
+      </label>
+    </div>
+    <hr/>
+
+    <button
+      [disabled]="categoryForm.form.invalid" class="btn btn-primary" type="submit">Submit
+    </button>
+
+  </form>
+</div>

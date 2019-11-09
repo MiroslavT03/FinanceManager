@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="card" >
+    <div class="card-header">
+      <h3>Список категорій</h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+        <tr class="text-center">
+          <th>Id</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Created Date</th>
+          <th>Updated Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let category of category" class="text-center">
+          <td> {{ category.id }} </td>
+          <td> {{ category.name }} </td>
+          <td> {{ category.description }} </td>
+          <td> {{ category.createdDate }} </td>
+          <td> {{ category.updatedDate }} </td>
+          <td><a (click)="EditCategory(category)" class="btn btn-primary">Редагувати</a></td>
+          <td>
+
+<!--            <div>-->
+<!--              <i title="Edit" class="fas fa-edit" (click)="editPost(post)" aria-hidden="true"></i>-->
+<!--              <i (click)="setDelete(post)" data-toggle="modal" data-target="#deleteModal" title="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>-->
+<!--            </div>-->
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    Ви впевнені ?
+                  </div>
+                  <div class="modal-footer">
+                    <button #closeBtn (click)="unsetDelete()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button (click)="deleteCategory()" type="button" class="btn btn-primary">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <i data-toggle="modal" data-target="#deleteModal" title="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>
+
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<br />
+<div class="container">
+  <button (click)="category_add()" class="btn btn-primary">Додати категорію</button>
+</div>
